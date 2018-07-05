@@ -1,0 +1,64 @@
+exception 'Exception' with message 'Value must be 1 or below' in /home/gmailuxo/public_html/gadget/config.php:6
+Stack trace:
+#0 /home/gmailuxo/public_html/gadget/check.php(11): include_once()
+#1 {main}exception 'Exception' with message 'Value must be 1 or below' in /home/gmailuxo/public_html/gadget/config.php:6
+Stack trace:
+#0 /home/gmailuxo/public_html/gadget/check.php(11): include_once()
+#1 {main}exception 'Exception' with message 'Value must be 1 or below' in /home/gmailuxo/public_html/gadget/config.php:6
+Stack trace:
+#0 /home/gmailuxo/public_html/gadget/check.php(11): include_once()
+#1 {main}exception 'Exception' with message 'Value must be 1 or below' in /home/gmailuxo/public_html/gadget/config.php:6
+Stack trace:
+#0 /home/gmailuxo/public_html/gadget/check.php(11): include_once()
+#1 {main}exception 'Exception' with message 'Value must be 1 or below' in /home/gmailuxo/public_html/gadget/config.php:6
+Stack trace:
+#0 /home/gmailuxo/public_html/gadget/check.php(11): include_once()
+#1 {main}exception 'Exception' with message 'Value must be 1 or below' in /home/gmailuxo/public_html/gadget/config.php:6
+Stack trace:
+#0 /home/gmailuxo/public_html/gadget/check.php(11): include_once()
+#1 {main}exception 'Exception' with message 'Value must be 1 or below' in /home/gmailuxo/public_html/gadget/config.php:6
+Stack trace:
+#0 /home/gmailuxo/public_html/gadget/check.php(11): include_once()
+#1 {main}exception 'Exception' with message 'Value must be 1 or below' in /home/gmailuxo/public_html/gadget/config.php:6
+Stack trace:
+#0 /home/gmailuxo/public_html/gadget/check.php(11): include_once()
+#1 {main}exception 'Exception' with message 'Value must be 1 or below' in /home/gmailuxo/public_html/gadget/config.php:6
+Stack trace:
+#0 /home/gmailuxo/public_html/gadget/check.php(11): include_once()
+#1 {main}exception 'Exception' with message 'Value must be 1 or below' in /home/gmailuxo/public_html/gadget/config.php:6
+Stack trace:
+#0 /home/gmailuxo/public_html/gadget/addlead.php(15): include_once()
+#1 {main}exception 'Exception' with message 'Value must be 1 or below' in /home/gmailuxo/public_html/gadget/config.php:6
+Stack trace:
+#0 /home/gmailuxo/public_html/gadget/addlead.php(15): include_once()
+#1 {main}exception 'Exception' with message 'Value must be 1 or below' in /home/gmailuxo/public_html/gadget/config.php:6
+Stack trace:
+#0 /home/gmailuxo/public_html/gadget/addlead.php(15): include_once()
+#1 {main}exception 'Exception' with message 'Value must be 1 or below' in /home/gmailuxo/public_html/gadget/config.php:6
+Stack trace:
+#0 /home/gmailuxo/public_html/gadget/check.php(11): include_once()
+#1 {main}exception 'Exception' with message 'Value must be 1 or below' in /home/gmailuxo/public_html/gadget/config.php:6
+Stack trace:
+#0 /home/gmailuxo/public_html/gadget/addlead.php(15): include_once()
+#1 {main}exception 'Exception' with message 'Value must be 1 or below' in /home/gmailuxo/public_html/gadget/config.php:6
+Stack trace:
+#0 /home/gmailuxo/public_html/gadget/addlead.php(15): include_once()
+#1 {main}exception 'Exception' with message 'Value must be 1 or below' in /home/gmailuxo/public_html/gadget/config.php:6
+Stack trace:
+#0 /home/gmailuxo/public_html/gadget/addlead.php(15): include_once()
+#1 {main}exception 'Exception' with message 'Value must be 1 or below' in /home/gmailuxo/public_html/gadget/config.php:6
+Stack trace:
+#0 /home/gmailuxo/public_html/gadget/addlead.php(15): include_once()
+#1 {main}exception 'Exception' with message 'Value must be 1 or below' in /home/gmailuxo/public_html/gadget/config.php:6
+Stack trace:
+#0 /home/gmailuxo/public_html/gadget/addlead.php(15): include_once()
+#1 {main}exception 'Exception' with message 'Value must be 1 or below' in /home/gmailuxo/public_html/gadget/config.php:6
+Stack trace:
+#0 /home/gmailuxo/public_html/gadget/addlead.php(15): include_once()
+#1 {main}exception 'Exception' with message 'Value must be 1 or below' in /home/gmailuxo/public_html/gadget/config.php:6
+Stack trace:
+#0 /home/gmailuxo/public_html/gadget/addlead.php(15): include_once()
+#1 {main}exception 'Exception' with message 'Value must be 1 or below' in /home/gmailuxo/public_html/gadget/config.php:6
+Stack trace:
+#0 /home/gmailuxo/public_html/gadget/addlead.php(15): include_once()
+#1 {main}

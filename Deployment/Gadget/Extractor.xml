@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?> 		
+<OpenCOBData id="SenderName">  		
+	<ExtractorSpec platform="gmail" language="en"> 		
+			<Search input_type="text"> 		
+				<Pattern input_fields="from_email,body"> 		
+				<![CDATA[(?P<sender_name>.*)]]> 		
+				</Pattern> 		
+			</Search> 		
+			<Response platform="gmail" format="cardgadget">		
+				<Output name="senderName">{@__FROM_PERSONAL__}</Output>		
+			</Response>		
+	</ExtractorSpec> 		
+</OpenCOBData>

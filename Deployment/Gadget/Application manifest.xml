@@ -1,0 +1,93 @@
+<ApplicationManifest xmlns="http://schemas.google.com/ApplicationManifest/2009">		
+	<Support>		
+		<Link rel="manage" href="http://www.leadsquared.com"/>		
+		<Link rel="support" href="http://support.leadsquared.com"/>		
+		<Link rel="deletion-policy" href="http://help.leadsquared.com/google-apps-deletion-policy/"/>		
+	</Support>		
+	<Name>
+		LeadSquared for Gmail
+	</Name>		
+	<Description>
+		LeadSquared for Gmail enables you to capture your valuable conversations with your new and current prospects in LeadSquared.
+	</Description>
+	<Extension id="navLink" type="link">		
+		<Name>LeadSquared Connector for Gmail</Name>		
+		<Url>http://www.leadsquared.com/connectors?utm_source=GoogleApps</Url>		
+	</Extension>		
+	<Extension id="realm" type="openIdRealm">
+		<Url>http://gmailconnect.leadroot.com</Url>
+	</Extension>
+	<Extension id="EmailSenderNameExtractor" type="contextExtractor"> 		
+		<Name>Email Sender Name Extractor</Name> 		
+		<Url>822362085120:SenderName</Url> 		
+		<Triggers ref="lsqgadget_gmail"/> 		
+		<Scope ref="sender_email"/> 		
+		<Scope ref="emailSenderName"/> 		
+		<Scope ref="body"/> 		
+		<Container name="mail"/> 					
+	</Extension>		
+	<Extension id="Ex1" type="contextExtractor">		
+		<Name>Ex1</Name>		
+		<Url>google.com:SenderEmailExtractor</Url>		
+		<Triggers ref="lsqgadget_gmail"/>		
+		<Scope ref="sender_email"/>		
+		<Container name="mail"/>		
+	</Extension>		
+	<Extension id="Ex2" type="contextExtractor">		
+		<Name>Ex2</Name>		
+		<Url>google.com:RecipientToEmailExtractor</Url>		
+		<Triggers ref="lsqgadget_gmail"/>		
+		<Scope ref="to_extra"/>		
+		<Container name="mail"/>		
+	</Extension>		
+	<Extension id="Ex3" type="contextExtractor">		
+		<Name>Ex3</Name>		
+		<Url>google.com:SubjectExtractor</Url>		
+		<Triggers ref="lsqgadget_gmail"/>		
+		<Scope ref="subject"/>		
+		<Container name="mail"/>		
+	</Extension>		
+	<Extension id="Ex4" type="contextExtractor">		
+		<Name>Ex4</Name>		
+		<Url>google.com:EmailBodyExtractor</Url>		
+		<Triggers ref="lsqgadget_gmail"/>		
+		<Scope ref="body"/>		
+		<Container name="mail"/>		
+	</Extension>		
+	<!--  GADGET  -->		
+	<Extension id="lsqgadget_gmail" type="gadget">		
+		<Name>LeadSquared for Gmail Contextual Gadget</Name>		
+		<Url>http://gmailconnect.leadroot.com/gadget/gadget.xml</Url>		
+		<Container name="mail"/>		
+		<!--  Uncomment this to enable Caja.  -->		
+		<!--  <Param name="caja" value="enabled"/>  -->		
+	</Extension>		
+	<!--  SCOPE  -->		
+	<Scope id="to_extra">		
+		<Url>		
+		tag:google.com,2010:auth/contextual/extractor/TO_ADDRESS</Url>		
+		<Reason>Integrate with LeadSquared</Reason>		
+	</Scope>		
+	<Scope id="subject">		
+		<Url>		
+		tag:google.com,2010:auth/contextual/extractor/SUBJECT		
+		</Url>		
+		<Reason>Integrate subject to track activity in LeadSquared</Reason>		
+	</Scope>		
+	<Scope id="sender_email">		
+		<Url>		
+		tag:google.com,2010:auth/contextual/extractor/FROM_ADDRESS		
+		</Url>		
+		<Reason>Integrate sender email with Lead record with LeadSquared</Reason>		
+	</Scope>		
+	<Scope id="body">		
+		<Url>		
+		tag:google.com,2010:auth/contextual/extractor/BODY		
+		</Url>		
+		<Reason>Integrate email body as activity with LeadSquared</Reason>		
+	</Scope>		
+	<Scope id="emailSenderName"> 		
+		<Url>tag:google.com,2010:auth/contextual/extractor/FROM_PERSONAL</Url> 		
+		<Reason>Integrate Sender Name as Lead Name with LeadSquared.</Reason> 		
+	</Scope>		
+</ApplicationManifest>

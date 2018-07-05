@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+  "name": "LeadSquared Connector",
+  "version": "1.4",
+   "description": "This connector captures your valuable email conversations with new and current prospects in LeadSquared.",
+   "icons": {
+      "128": "icon/128x128-icon.png",
+      "16": "icon/16x16-icon.png"
+  },
+  "container": ["DOMAIN_INSTALLABLE"],
+  "api_console_project_id": "587378889488"
+}

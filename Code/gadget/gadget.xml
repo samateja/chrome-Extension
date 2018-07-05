@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+  <ModulePrefs title="LeadSquared"
+    description="Gmail Plugin"
+    height="20"
+    author="LeadSquared"
+    author_email="support@leadsquared.com"
+    author_location="Bangalore, India">
+    <Require feature="dynamic-height"/>
+    <Require feature="google.contentmatch">
+      <Param name="extractors">
+       google.com:SenderEmailExtractor,google.com:RecipientEmailExtractor
+      </Param>
+    </Require>
+
+  </ModulePrefs>
+
+  <Content type="html" view="card">
+    <![CDATA[
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="pragma" content="no-cache" />    
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+	<style type="text/css">
+		/* CSS for Styling the Gadget*/
+		body{
+			background-color:#f6f6f6;
+			border:1px solid #CCC;
+			margin: 0px;
+			padding: 0px;
+			width:auto;
+			height: auto;
+		}
+
+		.wrap{
+			resize:none;
+			display: block;
+			overflow:hidden;
+			margin-top: -20px;
+			padding: 10px;
+			border-left:4px solid #3a89b0;
+			height:118px;
+		}
+
+		.leadSquaredLogo{
+			position:fixed;
+			overflow:hidden;
+			top:15px;	
+		}
+
+		.leadDetails{
+			float:left;
+			position:fixed;
+			width: 500px;
+			top:0px;
+			left:55px;
+			font-family:Arial, Helvetica, sans-serif;
+		}
+
+		.nameText{
+			float:left;
+			font-size:15px;
+			font-weight:700;
+			color:#666;
+		}
+
+		.emailText{
+			float:left;
+			font-size:15px;
+			font-weight:400;
+			margin-left:5px;
+			color:#bbb;
+		}
+
+		.otherText{
+			position:fixed;
+			top:20px;
+			left:55px;
+			font-size:13px;
+			font-weight:400;
+			color:#666;
+		}
+
+		.buttons li{
+			display: inline;
+			list-style: none;
+			float: right;
+		}
+
+		.blue-btn{
+		        display:none;
+			background: #3a89b0;
+			border:1px solid #156992;
+			color:#fff;
+			float: right;
+			padding: 0 10px;
+			font-weight: 900;
+			font-size: 0.6em;
+			cursor: pointer;
+			margin:0 2px;
+		}.blue-btn:hover{
+			background: #2787e1;
+			border-color: #0090ff;
+		}.blue-btn:active{
+			background: #999999;
+			outline: none;
+		}
+
+		.settings-btn img{
+			background: #f5f5f5; /* Old browsers */
+			border:1px solid #aaa;
+			border-radius: 2px;
+			width:20px;
+			height:20px;
+			padding: 5px;
+			cursor: pointer;
+		}.settings-btn img:hover{
+			background: #e1e1e1; /* Old browsers */
+		}
+
+		.leadFirst{ 
+		    display:none;
+			position: absolute;
+			top:4px;
+			left: 50px;
+		}
+
+		.leadFirst p{
+			font-family:Arial, Helvetica, sans-serif;
+			font-size:15px;
+			font-weight:700;
+			color:#666;
+		}
+
+		.leadFirst table{
+			margin-top: -15px;
+		}
+
+		.leadFirst table td{
+			padding-right: 20px;
+		}
+
+		.leadFirst table label{
+			font-family:Arial, Helvetica, sans-serif;
+			font-size:13px;
+			font-weight:400;
+			color:#666;
+			position: relative;
+			bottom:-2px;
+		}
+
+		.leadFirst table input{
+			display:inline;
+			width:200px;
+			height: 20px;
+			font-size: 13px;
+			padding: 5px;
+		}
+
+		.authenticate-btn{
+			background: #00aeef;
+			border:1px solid #046c93;
+			color:#fff;
+			width: 150px;
+			height: 24px;
+			cursor: pointer;
+		}.authenticate-btn:hover{
+			background: #005fe0;
+		}
+
+		.error-text{
+			float: left;
+			position: fixed;
+		}
+
+		#warning{
+			display:none;
+			float:left;
+			color:#FF0000;
+			background-color:#FFFDAB;
+			padding: 5px;
+		}
+
+		#warning1{
+			display:none;
+			float:left;
+			text-align:left;
+			color:#028D00;
+			
+			line-height:35px;
+			position:relative;
+			top:6px;
+			left:215px;
+			padding:0 5px;
+		}
+#detail{
+display:block;
+position:absolute;
+bottom:-60px;
+font-size:13px;
+font-weight:400;
+color:#666;
+}
+
+#detail span{
+font-size:13px;
+font-weight:700;
+color:#666;
+}
+.vertical-line{
+color: #4C9AF0;
+}
+
+	</style>
+	<body>
+	<div class="wrap">
+    	<img class="leadSquaredLogo" src="http://gmailconnect.leadroot.com/gadget/LS_GmailGadget_icon.png" />
+        <div class="leadDetails"  id="info" > 
+
+        </div>
+		<ul class="buttons">
+		<li><button class="blue-btn" onclick="addLead('update')" id="add_lead" ><p>Add This Email As Activity</button></li>
+	        <li><button class="blue-btn" id="not_lead" onclick="addLead('new')" ><p>Track this Activity and Contact LeadSquared</button></li>
+	        </ul>
+		<div class="leadFirst" id="leadFirst">
+        	<p>Provide Secret and Access Key to Start Lead Tracking</p>
+        	<table>
+        		<tr>
+		        	<td><label>Secret Key</label></td>
+		        	<td><label>Access Key</label></td>
+	        	</tr>
+	        	<tr>
+	        		<td><input type="text" id="apiKey"></td>
+					<td><input type="text" id="accessKey"></td>
+					<td><button type="submit" class="authenticate-btn" onclick="saveToken('add')">Authenticate</button></td>
+	        	</tr>
+			</table>
+        </div>
+		
+	<div class="leadFirst" id="updateInfo">
+         <p>The Secret Key or Access Key you entered is incorrect. Please try again.</p>
+        	<table>
+        		<tr>
+		        	<td><label>Secret Key</label></td>
+		        	<td><label>Access Key</label></td>
+	        	</tr>
+	        	<tr>
+	        		<td><input type="text" id="apiKey1"></td>
+					<td><input type="text" id="accessKey1"></td>
+					<td><button type="submit" class="authenticate-btn" onclick="saveToken('update')">Authenticate</button></td>
+	        	</tr>
+			</table>
+        </div>
+		<div class="error-text">
+			<p id="warning"><em>Note:</em> <strong>Please set your Account Details.</strong></p>
+			<p id="warning1"><strong></strong></p>
+		<div>
+		</div>
+	</div>
+
+</body>
+ <script type="text/javascript">
+		
+			
+			
+			
+  function saveToken(para)
+  {
+   var email,secret,access;
+   email=data[0];
+   if(para=="add")
+   {
+	  secret=document.getElementById('apiKey').value;
+	  access=document.getElementById('accessKey').value;
+   }
+   if(para=="update")
+   {
+	  secret=document.getElementById('apiKey1').value;
+	  access=document.getElementById('accessKey1').value;
+   }
+   if( secret=="" || secret==null)
+   {
+	  alert("All field are compulsory");
+   }
+   else if( access==""|| access==null )
+   {
+    alert("All field are compulsory");
+   }  
+   else
+  {
+   var params = {};
+   var postdata = {
+    	     Email: email,
+    	     AccessKey:access ,
+  	     SecretKey:secret,
+             Action:para
+        };
+		  
+		  params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+		  params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.encodeValues(postdata);
+		  var url = "http://gmailconnect.leadroot.com/gadget/insert.php";
+		  gadgets.io.makeRequest(url, response, params);
+		  }
+		  }; 
+		  
+		  function response(obj) {
+	
+		 if(obj.text=="1")
+		 {
+		  location.reload(true);
+		  }
+		 else if(obj.text=="Error")
+		   {
+		 
+		   document.getElementById("warning1").style.display = 'block';
+		   document.getElementById('warning1').innerHTML ="<p class='nameText'>It seems there's a technical glitch. Please contact support.</p>";   
+		  }
+		  else
+		  {
+		    location.reload(true);
+		  }
+		};
+
+var temp;
+  function addLead(msgs)
+  {
+   temp=msgs;
+    var params = {};
+	 var postdata = {
+			senderEmail:data[1],
+			toEmail:data[0],
+			senderName:data[2],
+			subject:data[4],
+			body:data[3],
+		  };
+      params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+		  params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.encodeValues(postdata);
+		 var url = "http://gmailconnect.leadroot.com/gadget/addlead.php";
+		 console.log(url);
+		  gadgets.io.makeRequest(url, response1, params);
+     
+ 
+ 
+  };
+  
+
+
+    function response1(obj) { 
+      var jsondata = obj.text;
+	console.log(temp);
+	  if(obj.text==3)
+	  {
+	    document.getElementById("leadFirst").style.display = 'block';
+	  }
+	  else if(obj.text==1)
+	  {
+	  if(temp='update')
+	    var msg="This Email is successfully tracked in LeadSquared";
+          if(temp='new')
+	    var msg="This Email id and Email is successfully tracked in LeadSquared";
+               document.getElementById('warning1').innerHTML =msg;
+               document.getElementById("warning1").style.display = 'block';
+               document.getElementById("info").style.display = 'none';
+               document.getElementById("add_lead").style.display = 'none';
+               document.getElementById("not_lead").style.display = 'none';
+              
+          }
+	  else if(obj.text=="Error")
+	  {
+	   document.getElementById("info").style.display = 'none';
+	   document.getElementById("add_lead").style.display = 'none';
+           document.getElementById("not_lead").style.display = 'none';
+	   document.getElementById("warning1").style.display = 'block';
+	   document.getElementById('warning1').innerHTML ="<p class='nameText'>It seems there's a technical glitch. Please contact support.</p>";   
+	  }
+	  else
+	  {
+	   document.getElementById("updateInfo").style.display = 'block';
+	  }
+	 
+	};
+	
+	
+	
+	
+        matches = google.contentmatch.getContentMatches();
+        var matchList = document.createElement('UL');
+        var listItem;
+        var extractedText;
+        var i=0;
+        var data= new Array();
+         
+        
+        for (var match in matches) {
+          for (var key in matches[match]) {
+               data[i]=matches[match][key];
+             i++;
+            }
+        }
+      
+       //** Code to check user is in the leadsquared 
+	   var url="http://gmailconnect.leadroot.com/gadget/check.php?sEmail="+data[1]+"&oEmail="+data[0];
+	   var params = {};
+	   params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
+	 
+	      var ts = new Date().getTime();
+		  var sep = "?";
+		  var refreshInterval=0;
+		  if (refreshInterval && refreshInterval > 0) {
+			ts = Math.floor(ts / (refreshInterval * 1000));
+		  }
+		  if (url.indexOf("?") > -1) {
+			sep = "&";
+		  }
+		  url = [ url, sep, "nocache=", ts ].join("");
+		console.log(url);
+	   gadgets.io.makeRequest(url, feedback, params); 
+
+  function feedback(obj)
+   { 
+     var jsondata = obj.text;
+      	 result= JSON.parse(jsondata );
+           console.log(result);
+           if(result.Source!=null)
+           var  Source= result.Source;
+           else
+           var  Source= "";
+           
+           if(result.Mobile!=null)
+           var  Mobile= result.Mobile;
+           else
+           var  Mobile= "";
+           
+           if(result.ProspectStage!=null)
+           var  ProspectStage= result.ProspectStage;
+           else
+           var  ProspectStage= "";
+      
+           if(result.Score!=null)
+           var  Score= result.Score;
+           else
+           var  Score= "";    
+           
+           
+           if(result.Region!=null)
+           var  Region= result.Region;
+           else
+           var  Region= "";    
+           
+          
+         
+          
+     if(result.Result==0)
+	  {
+	 document.getElementById("not_lead").style.display = 'block';
+	 document.getElementById('info').innerHTML ='<p class="nameText">'+data[2]+'</p><p class="emailText">&lt'+data[1]+'&gt </p> <p class="otherText">does not exist in LeadSquared as a lead.</p>';   
+	  }
+	 else if(result.Result==1)
+	  {
+	  document.getElementById("add_lead").style.display = 'block';
+	  document.getElementById('info').innerHTML ='<p class="nameText">'+data[2]+'</p><p class="emailText">&lt'+data[1]+'&gt </p> <p class="otherText">This Email is already tracked in LeadSquared.</p><p id="detail">'+Mobile+'<b><label class="vertical-line"> |</label> </b> '+Region+'<br>Lead Source: <span>'+Source+'</span><b><label class="vertical-line"> |</label> </b> Lead Score:<span>'+Score+'</span><b><label class="vertical-line"> |</label> </b>  Lead Stage:<span>'+ProspectStage+'</span></p>'; 
+	  }
+	 else if(result.Result==3)
+	   {
+	 
+	   document.getElementById("updateInfo").style.display = 'block';
+	 
+	  }
+	   else if(result.Result=="Error")
+	   {
+	 
+	   document.getElementById("warning1").style.display = 'block';
+	   document.getElementById('warning1').innerHTML ="<p class='nameText'>It seems there's a technical glitch. Please contact support.</p>";   
+	  }
+	 else
+	  {
+	   document.getElementById("leadFirst").style.display = 'block';
+	 
+	  }
+      
+	};
+       
+     gadgets.window.adjustHeight(120);
+      </script>
+    ]]>
+  </Content>
+  </Module>
